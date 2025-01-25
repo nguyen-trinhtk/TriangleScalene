@@ -21,26 +21,27 @@ const Header = () => {
 
     return (
     <>
-      <div className="flex justify-around text-left"> 
+      <div className="header-section flex justify-around text-left"> 
         {/* Left of image */}
-        <div className='basis-4/16'>
-          <div className='flex-col justify-between'>
-              Philadelphia, PA: {weatherVariable} {'\u00b0'}F
-          </div>
+        <div className='basis-4/16 justify-self-end'>
           <div>
-              Today's Paper
+              {dateVariable.toLocaleDateString('en-US', options)}
+          </div>
+          
+          <div>
+              <b>Today's Paper</b>
           </div>
         </div>
 
         <img className="basis-8/16 h-auto w-[50%]" src="/images/triangle-header-logo.svg" alt="Triangle Logo"/>
 
         {/* Right of image */}
-        <div className='basis-4/16'>
+        <div className='basis-4/16 justify-items-end'>
           <div>
-              {dateVariable.toLocaleDateString('en-GB', options)}
+              Philadelphia, PA: {weatherVariable} {'\u00b0'}F
           </div>
           <div>
-            Support Local News
+            <b>Support Local News</b>
           </div>
         </div>
       </div>
