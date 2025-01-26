@@ -1,6 +1,3 @@
-import { string } from 'astro:schema';
-import React, { useState } from 'react';
-
 
 const weather = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Philadelphia?unitGroup=metric&include=current&key=R75ZL8UTXNSKG8GBYRH82DJE4&contentType=json", {
     method: "GET"
