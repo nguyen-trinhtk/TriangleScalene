@@ -7,11 +7,13 @@ import PhotoGallery from './PhotoGallery.jsx';
 import Staff from './Staff.jsx';
 import FindATriangle from './FindATriangle.jsx';
 import ContactTheTriangle from './ContactTheTriangle.jsx';
+import List from './List.jsx'
 
 const Home = () => {  
   return (
     <>
       <Header/>
+      <List/>
       <Donate/>
       <About/>
       <Classifieds/>
