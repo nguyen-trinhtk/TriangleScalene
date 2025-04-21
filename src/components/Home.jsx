@@ -8,12 +8,14 @@ import Staff from './Staff.jsx';
 import FindATriangle from './FindATriangle.jsx';
 import ContactTheTriangle from './ContactTheTriangle.jsx';
 import TopArticle from './TopArticles.jsx';
+import List from './List.jsx';
 
 const Home = () => {  
   return (
     <>
       <Header/>
       <TopArticle/>
+      <List isRow={true} showSection={true} showImage={true} articleList={["SPORTS", "OPINION", "NEWS", "COMICS"]}/>
       {/*
       <Donate/>
       <About/>

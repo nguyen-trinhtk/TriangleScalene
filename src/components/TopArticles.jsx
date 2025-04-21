@@ -3,7 +3,7 @@ import List from './List.jsx';
 const TopArticle = () => {
     return(
         <>
-        <div className="grid grid-cols-4 gap-1 m-1 divide-x-1">
+        <div className="grid grid-cols-4 gap-1 m-1">
             <div className="col">
             <List showImage={true} articleList={["SPORTS", "OPINION"]}/>
             </div>

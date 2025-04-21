@@ -1,4 +1,4 @@
-const List = ({showSection, showImage, showDescription, isHeader, articleList}) => {
+const List = ({showSection, showImage, showDescription, isHeader, articleList, isRow}) => {
     var articleListComponent = []
     const titleTextHeader = isHeader ? 'text-[40px]' : '';
 
@@ -10,20 +10,30 @@ const List = ({showSection, showImage, showDescription, isHeader, articleList}) 
 
         articleListComponent.push(
         <>
-        <div className='border-b-1 p-5 -mt-px'>
+        <div className="border-b-1 p-5 -mt-px">
+            {image}  
             <div className='secondary-color-two'>
                 {sectionName}
             </div>
-                {image}
-                <div className={titleTextHeader}>Title</div>
-                <div className="text-sm">Author | Date</div>
-
-                {description}
+            <div className={titleTextHeader}>Title</div>
+            <div className="text-sm">Author | Date</div>
+            {description}
         </div>
         </>
             )
     }
     )
+
+    if (isRow){
+        return(
+            <>
+            <div className="grid grid-cols-4 gap-1 m-1 divide-x-1">
+                {articleListComponent}
+            </div>
+            </>
+        )
+    }
+
     return articleListComponent
 }
 
