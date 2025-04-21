@@ -1,27 +1,30 @@
-const List = () => {
+const List = ({showSection, showImage, showDescription, isHeader, articleList}) => {
     var articleListComponent = []
-    const articleList = [0, 1]
-    articleList.map(() =>
+    const titleTextHeader = isHeader ? 'text-[40px]' : '';
+
+    articleList.map((index) =>
     {
+        const sectionName = showSection ? `${index}` : ``
+        const image = showImage ? <img src="src\assets\drexel-campus-bridge.jpg" alt="Image goes here"/> : <></>
+        const description = showDescription ? `This is a beautifully written description. It's non-existent, just like Drexel's financial management.` : ``
+
         articleListComponent.push(
         <>
-        <div class='border-1 p-5 -mt-px'>
-            <div class='secondary-color-two'>
-                SECTION
+        <div className='border-b-1 p-5 -mt-px'>
+            <div className='secondary-color-two'>
+                {sectionName}
             </div>
-                Title
-                <br/>
-                Author | Date 
+                {image}
+                <div className={titleTextHeader}>Title</div>
+                <div className="text-sm">Author | Date</div>
+
+                {description}
         </div>
         </>
             )
     }
     )
-    return (
-    <div class='list'>
-            {articleListComponent}
-    </div>
-    )
+    return articleListComponent
 }
 
 export default List
