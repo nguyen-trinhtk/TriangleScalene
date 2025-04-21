@@ -7,13 +7,14 @@ import PhotoGallery from './PhotoGallery.jsx';
 import Staff from './Staff.jsx';
 import FindATriangle from './FindATriangle.jsx';
 import ContactTheTriangle from './ContactTheTriangle.jsx';
-import List from './List.jsx'
+import TopArticle from './TopArticles.jsx';
 
 const Home = () => {  
   return (
     <>
       <Header/>
-      <List/>
+      <TopArticle/>
+      {/*
       <Donate/>
       <About/>
       <Classifieds/>
@@ -22,6 +23,7 @@ const Home = () => {
       <Staff/>
       <FindATriangle/>
       <ContactTheTriangle/>
+      */}
     </>
   )
 };
