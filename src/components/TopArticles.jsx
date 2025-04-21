@@ -11,7 +11,7 @@ const TopArticle = () => {
             <List showImage={true} showDescription={true} isHeader={true} articleList={["NEWS"]}/>
             </div>
             <div className="col">
-            <List showSection={true} articleList={["SPORTS", "OPINION"]}/>
+            <List showSection={true} articleList={["SPORTS", "OPINION", "NEWS", "COMICS"]}/>
             </div>
         </div>
         </>
