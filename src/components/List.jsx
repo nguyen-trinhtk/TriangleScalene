@@ -1,6 +1,5 @@
-const List = ({showSection, showImage, showDescription, isHeader, articleList, isRow}) => {
+const List = ({showSection, showImage, showDescription, articleList, isRow}) => {
     var articleListComponent = []
-    const titleTextHeader = isHeader ? 'text-[40px]' : '';
 
     articleList.map((index) =>
     {
@@ -10,12 +9,12 @@ const List = ({showSection, showImage, showDescription, isHeader, articleList, i
 
         articleListComponent.push(
         <>
-        <div className="border-b-1 p-5 -mt-px">
+        <div className="p-2">
             {image}  
             <div className='secondary-color-two'>
                 {sectionName}
             </div>
-            <div className={titleTextHeader}>Title</div>
+            <div className="">Title</div>
             <div className="text-sm">Author | Date</div>
             {description}
         </div>
@@ -27,14 +26,20 @@ const List = ({showSection, showImage, showDescription, isHeader, articleList, i
     if (isRow){
         return(
             <>
-            <div className="grid grid-cols-4 gap-1 m-1 divide-x-1">
+            <div className="grid grid-cols-4 divide-x divide-gray divide-solid">
                 {articleListComponent}
             </div>
             </>
         )
     }
 
-    return articleListComponent
+    return(
+        <>
+        <div className="divide-y divide-gray divide-solid">
+            {articleListComponent}
+        </div>
+        </>
+    )
 }
 
 export default List
