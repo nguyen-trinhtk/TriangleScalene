@@ -14,7 +14,7 @@ const List = ({showSection, showImage, showDescription, articleList, isRow}) => 
             <div className='secondary-color-two'>
                 {sectionName}
             </div>
-            <div className="">Title</div>
+            <div className="">A Long Title that Means Nothing</div>
             <div className="text-sm">Author | Date</div>
             {description}
         </div>
@@ -26,7 +26,7 @@ const List = ({showSection, showImage, showDescription, articleList, isRow}) => 
     if (isRow){
         return(
             <>
-            <div className="grid grid-cols-4 divide-x divide-gray divide-solid">
+            <div className="grid grid-cols-4 divide-x divide-gray">
                 {articleListComponent}
             </div>
             </>
