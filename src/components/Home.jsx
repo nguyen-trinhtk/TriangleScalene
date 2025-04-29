@@ -9,6 +9,7 @@ import FindATriangle from './FindATriangle.jsx';
 import ContactTheTriangle from './ContactTheTriangle.jsx';
 import TopArticle from './TopArticles.jsx';
 import List from './List.jsx';
+import ArticleSectionGroup from './ArticleSectionGroup.jsx';
 
 const Home = () => {  
   return (
@@ -16,6 +17,8 @@ const Home = () => {
       <Header/>
       <TopArticle/>
       <List isRow={true} showSection={true} showImage={true} articleList={["SPORTS", "OPINION", "NEWS", "COMICS"]}/>
+      <ArticleSectionGroup sectionName={"OPINION"} type={1}></ArticleSectionGroup>
+      <ArticleSectionGroup sectionName={"ENTERTAINMENT"} type={2}></ArticleSectionGroup>
       {/*
       <Donate/>
       <About/>
