@@ -10,11 +10,13 @@ import ContactTheTriangle from './ContactTheTriangle.jsx';
 import TopArticle from './TopArticles.jsx';
 import List from './List.jsx';
 import ArticleSectionGroup from './ArticleSectionGroup.jsx';
+import NavigationBar from './NavigationBar.jsx';
 
 const Home = () => {  
   return (
     <>
       <Header/>
+      <NavigationBar pageNames={["Comics"]}/>
       <TopArticle/>
       <List isRow={true} showSection={true} showImage={true} articleList={["SPORTS", "OPINION", "NEWS", "COMICS"]}/>
       <ArticleSectionGroup sectionName={"OPINION"} type={1}></ArticleSectionGroup>
