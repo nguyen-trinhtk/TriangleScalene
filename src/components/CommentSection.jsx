@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
-import {FiThumbsUp, FiThumbsDown, FiShare2} from "react-icons/fi";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp as faThumbsUpSolid } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp as faThumbsUpRegular } from '@fortawesome/free-regular-svg-icons'
+import { faThumbsDown as faThumbsDownSolid } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsDown as faThumbsDownRegular } from '@fortawesome/free-regular-svg-icons'
+import { FiShare2 } from 'react-icons/fi'
 
 function SingleComment({timeStr, user, content}) {
-    const comment_time = new Date(timeStr); //sample date
+    const comment_time = new Date(timeStr);
     const [now, setNow] = useState(new Date());
 
     useEffect(() => {
@@ -67,26 +72,10 @@ function AllComments({cmtList}) {
 const CommentSection = () => {
     const [cmt, setCmt] = useState("");
     const [commentList, setCommentList] = useState([
-        // {
-        //     "user" : "Sample User",
-        //     "content" : "I have a comment on this! This is my comment",
-        //     "time" : "2025-06-07 10:50:00"
-        // },
-        // {
-        //     "user" : "Sample User",
-        //     "content" : "I have a comment on this! This is my comment",
-        //     "time" : "2025-05-08 10:50:00"
-        // },
-        // {
-        //     "user" : "Sample User",
-        //     "content" : "I have a comment on this! This is my comment",
-        //     "time" : "2025-06-04 10:50:00"
-        // }
     ]);
 
     const handleCmtSubmit = (event) => {
         event.preventDefault();
-        // alert(`The cmt you entered was: ${cmt}`);
         const now = new Date();
         const pad = (n) => n.toString().padStart(2, '0');
         const formattedNow = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
@@ -101,14 +90,29 @@ const CommentSection = () => {
         setCommentList(cmtListCopy);
         setCmt("");
     }
+        
+        const [liked, setLiked] = useState(false);
+        const [disliked, setDisliked] = useState(false);
+        const handleLike = () => {
+            if (disliked) {
+                setDisliked(false);
+            }
+            setLiked(!liked);
+        };
+        const handleDislike = () => {
+            if (liked) {
+                setLiked(false);
+            }
+            setDisliked(!disliked);
+        }
 
     return (
         <>
             <div className="reaction-container">
-                <span title="Like"><FiThumbsUp /><span>Like</span></span>
-                <span title="Dislike"><FiThumbsDown /><span>Dislike</span></span>
-                <span title="Share"><FiShare2 /><span>Share</span></span>
-                <span>{commentList.length} comments</span>
+                <span title="Like" className="reaction-btn" onClick={handleLike}>{liked ? <FontAwesomeIcon icon={faThumbsUpSolid} /> : <FontAwesomeIcon icon={faThumbsUpRegular} />}<span>Like</span></span>
+                <span title="Dislike" className="reaction-btn" onClick={handleDislike}>{disliked ? <FontAwesomeIcon icon={faThumbsDownSolid} /> : <FontAwesomeIcon icon={faThumbsDownRegular} />}<span>Dislike</span></span>
+                <span title="Share" className="reaction-btn" onClick={()=>{alert('shared')}}><FiShare2 /><span>Share</span></span>
+                <span>{commentList.length} comment{commentList.length !== 1 ? "s" : ""}</span>
             </div>
             <div className = "comments-container">
                 <h1 className="bottom-border">Comments</h1>
@@ -218,6 +222,13 @@ const CommentSection = () => {
                 gap: 0.5rem;
                 color: #aaa;
                 font-size: 1.2rem;
+                }
+                .reaction-btn:hover > * {
+                cursor: pointer;
+                text-decoration: underline;
+                }
+                comment-input::placeholder {
+                font-size: 1rem;
                 }
             `}</style>
         </>

@@ -94,6 +94,9 @@ const Article = () => {
         }
         
         @media (max-width: 978px), (orientation: portrait) {
+          html {
+            font-size: 30px;}
+          }
           .divider {
             display: none;
           }
